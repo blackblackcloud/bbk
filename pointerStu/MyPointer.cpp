@@ -2,10 +2,16 @@
 int add(int a, int b) {
     return a + b;
 }   
-int main() {
-    int (*funcPtr)(int, int) = add; // 定义一个函数指针，指向 add 函数
-    int result = funcPtr(3, 4); // 通过函数指针调用 add 函数
-    std::cout << "结果: " << result << std::endl; // 输出结果
-    return 0;
-    
+A::A(int a, int b) : var1(a), var2(b) {}
+A::~A() {
+    std::cout << "A对象被销毁" << std::endl;
+}
+int A::getSum() const {
+    return var1 + var2;
+}
+void A::setVar1(int a) {
+    this->var1 = a;
+}
+int A::add(int a, int b) const {
+    return a + b;
 }
